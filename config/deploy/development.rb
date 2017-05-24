@@ -7,7 +7,7 @@ server '${IP_ADDRESS}',
 user: 'root',
 roles: %w{web app db},
 ssh_options: {
- auth_methods: %w(password),
- password: '********'
+ forward_agent: true,
+ keys: [File.join(ENV["HOME"], ".ssh", "id_rsa")]
 }
 
